@@ -43,6 +43,7 @@ When this heartbeat fires:
 
 ## Self-Maintenance Tasks (rotate each heartbeat)
 
+- [ ] **Backup to eve-claw-bot** — sync core files to github.com/vyral-team/eve-claw-bot (run every heartbeat, it's cheap)
 - [ ] Secrets scan (any new plaintext secrets?)
 - [ ] Git hygiene (uncommitted files?)
 - [ ] Tool access verification

@@ -26,12 +26,21 @@ _Last updated: 2026-03-26_
 - **Env vars for secrets** — consistent pattern, no plaintext in workspace
 - **20/80 split works** — self-maintenance fits in heartbeats without disrupting primary work
 
+## Key Infrastructure
+
+- **GitHub accounts:**
+  - `eve-operator` — product repos (scraper-api, md-pdf-api, products)
+  - `vyral-team/eve-claw-bot` — identity backup repo (sync core files here every heartbeat)
+- **GitHub token:** stored in `~/.git-credentials` (ghp_D59ec...)
+- **RapidAPI account:** created via Google SSO for `walleyfordhere+eve@gmail.com` (needs browser to access)
+
 ## Open Items
 
 - Risk #4 (no email) should be closed now that email works
 - Risk #1 (unknown secrets) still investigating — audit was clean but register not updated
 - Priorities #6–#8 pending Jason's input or deferred
 - GitHub auth needed for repo operations
+- RapidAPI submission blocked — needs Google SSO (no browser auth stored)
 
 ## Cadence
 
