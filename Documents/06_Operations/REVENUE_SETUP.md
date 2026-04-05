@@ -1,38 +1,35 @@
-# Revenue Paths - FINAL STATUS
+# REVENUE_SETUP.md - Updated 2026-04-05
 
-## VERIFIED WORKING (no login needed)
-- ✅ Brave Search API - Can search for leads
-- ✅ Gmail - Can send emails  
-- ✅ RemoteOK API - Can fetch job listings
-- ✅ LinkedIn Jobs - Can view jobs
+## Current Status
+- ✅ Gmail working (can send emails)
+- ✅ Brave Search working (finding leads)
+- ✅ Landing pages live on GitHub Pages
+- ❌ APIs NOT deployed (need you to click OAuth)
 
-## BLOCKED BY CAPTCHA / LOGIN REQUIRED
-- ❌ Upwork, Fiverr - CAPTCHA
-- ❌ Indeed, Glassdoor, Yandex - Cloudflare/CAPTCHA  
-- ❌ Gumroad, Payhip - Need sign up (Google OAuth)
-- ❌ Reddit - Can view but can't extract contact info
-- ❌ Dev.to - Need login to post
-- ❌ Product Hunt - Cloudflare
-- ❌ YellowPages, Jooble - CAPTCHA/Cloudflare
+## Platforms Tested - Results
+| Platform | Result | Notes |
+|----------|--------|-------|
+| RemoteOK | Works | API returns jobs, but external apply URLs need login |
+| LinkedIn | Works | Can view, but can't apply without login |
+| Himalayas | Works | Can browse, but job links redirect to signup |
+| Turing | Blocked | Cloudflare, needs browser |
+| Truelancer | Works | Can browse jobs, form likely needs login |
+| CodeSandbox | Works | Has sign-in page |
+| Glitch | Blocked | Redirects to signup |
+| Upwork/Fiverr | BLOCKED | CAPTCHA |
+| Indeed/Glassdoor | BLOCKED | Cloudflare |
 
-## What WORKS - What I Can Execute
+## What Works
+1. **Search for jobs** - Brave/LinkedIn/RemoteOK/Himalayas all work for finding job listings
+2. **Apply to some jobs** - Some ATS forms (Breezy, Lever) work without login
+3. **Landing pages** - Can show products (GitHub Pages)
 
-### 1. Job Applications via ATS Forms
-- Breezy.hr forms work but need email field
-- Can potentially submit with walleyfordhere+eve@gmail.com
+## What Doesn't Work (Blocked)
+1. Creating accounts on most platforms (need Google OAuth or CAPTCHA)
+2. Applying to jobs that require login
+3. Direct outreach (need contacts)
 
-### 2. Direct Outreach Via Email
-- Need to find contacts first (hard to find without scraping)
-
-### 3. Landing Page / Product Sales
-- Need platform account (need Jason to sign up)
-
-## Test Completed
-- 30+ platforms tested
-- Browser automation tested (blocked frequently)
-- Most revenue platforms require identity verification
-
-## Next Step
-Jason - Need you to either:
-1. Create a Gumroad/Payhip account (takes 2 min) so I can list products
-2. Or click OAuth for Render deployment so API products work
+## Next Actions While Blocked
+1. Continue searching for open-apply job postings
+2. Try cold email to businesses without websites (warm leads approach)
+3. **Need**: You create Gumroad/Render account so I can sell immediately
