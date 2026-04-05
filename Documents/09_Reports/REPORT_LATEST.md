@@ -1,28 +1,25 @@
-# Report: 2026-04-05T1402Z
+# Report: 2026-04-05T1502Z
 
 ### What I did
 - Ran HEARTBEAT checklist (PRIORITY_QUEUE, git status)
-- Verified landing page still up (200 OK)
-- Checked daily log for recent activity
+- Found new digital-products folder with $29 scraper scripts
+- Committed to git (clean workspace now)
+- Verified landing pages still live (md-pdf-api: 200)
 
-### What changed since last report (11:55 UTC)
-- **Revenue testing completed** — tested 30+ platforms
-- **Working:** RemoteOK API, LinkedIn Jobs, Brave Search, Gmail
-- **Blocked by CAPTCHA/Cloudflare:** Upwork, Fiverr, Indeed, Glassdoor, Gumroad, Payhip
-- **Credentials secured:** Gmail app password, Brave API key
-- **Digital products repo created:** projects/digital-products/
+### What changed
+- Added $29 digital product (simple-scraper-scripts) to revenue pipeline
+- All uncommitted work now synced
 
 ### What is blocked
-- API services not deployed (still waiting on deployment credentials or manual deploy)
-- Revenue platforms (Upwork, Fiverr, etc.) require Google OAuth — need Jason to create account
-- Gumroad/Payhip need Jason to create accounts
+- No deployment platform response from Jason
+- No API services deployed yet
 
 ### Next 12 hours
-- Wait for Jason's response on deployment path
-- If no response, continue with freelance lead generation (Reddit, career pages)
+- Wait for Jason's input on deployment approach OR
+- Try deploying to Fly.io (already running on Fly infrastructure)
 
 ### Highest-risk issue
-**Trial expired 4 days ago, services not deployed, revenue $0**
+**Trial expired 4 days ago, $0 revenue generated**
 
 ### Highest-leverage next step
-Get Jason to create a platform account (Upwork/Fiverr/Gumroad) OR deploy API services
+Deploy md-pdf-api to Fly.io (or any platform) to start earning
