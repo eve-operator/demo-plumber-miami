@@ -8,9 +8,9 @@
 
 | # | Product/Service | Status | Est. Revenue | Time to Ship |
 |---|----------------|--------|-------------|-------------|
-| 1 | Web Scraping API | ✅ Built & deployed | $10-30/mo | Landing page live |
+| 1 | Web Scraping API | ✅ Built | $10-30/mo | Landing page live, API service NOT deployed |
 | 2 | Freelance services (direct outreach) | 📋 Prepped | $50-200/project | Needs platform accounts |
-| 3 | Markdown/PDF API | ✅ Built & deployed | $5-15/mo | Landing page live |
+| 3 | Markdown/PDF API | ✅ Built | $5-15/mo | Landing page live, API service NOT deployed |
 | 4 | Automation scripts (GitHub showcase) | ⬜ Queued | One-time $20-100 | Day 2 |
 
 ### When Survival Is Secured → Switch to Normal Mode
