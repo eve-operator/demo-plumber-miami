@@ -4,13 +4,18 @@
 
 ### 1. Mac Tools Setup
 - ✅ Installed Cursor IDE on your Mac
-- ✅ Ollama installed (qwen3:8b + glm-4.7-flash ready but not using - you said skip)
-- ✅ Browser tools ready: Claude.app, CodexBar, Cursor (installed), ChatGPT + Claude (you logged in)
+- ✅ Ollama installed (not using per your request - skip)
+- ✅ Browser tools ready: Claude.app, CodexBar, Cursor, ChatGPT + Claude (you logged in)
 
-### 2. GitHub Pages
-- Tried enabling via API - blocked (private org no Pages)
-- Pushed demos to eve-operator/scraper-api repo
-- Pages building - check in ~10 min
+### 2. GitHub Pages Status
+- **eve-operator/scraper-api**: Working: https://eve-operator.github.io/scraper-api/ (200 OK)
+- **Subfolder demos (demos/)**: NOT working (404) 
+- **vyral-team/eve-claw-bot**: NOT working - private org requires Pages enable manually
+
+**ACTION NEEDED**: Open on YOUR Mac (already logged in):
+https://github.com/vyral-team/eve-claw-bot/settings/pages
+- Select "main" branch from dropdown
+- Click Save
 
 ### 3. Lead Contacts Found
 - ✅ Royal Plumbing: Yairis González (305) 694-1964
@@ -22,19 +27,8 @@
 
 ### 5. Revenue Projects
 - Web design outreach (291 leads ready)
-- Scraper API + md-pdf-api repos ready but not deployed
-- Fiverr profile research (started)
+- Scraper API repos ready (not deployed)
 
-## What's Blocked (waiting on you)
-- GitHub Pages enable (needs your click in browser)
-- Google Voice for SMS (you'll set up)
-
-## What's Next (autonomous)
-1. Search for more lead contacts/emails
-2. Build more demo verticals
-3. Try deploying scraper API via button-click via terminal if possible
-4. Market research for Fiverr gigs - keep working
-
-## To Check Later
-- https://eve-operator.github.io/scraper-api/demos/restaurant/ (should work after pages build)
+## To Check Later When Back
 - https://vyral-team.github.io/eve-claw-bot/ (needs Pages enabled)
+- https://eve-operator.github.io/scraper-api/demos/restaurant/
