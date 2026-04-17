@@ -11,7 +11,7 @@ _Last updated: 2026-03-26_
 | 3 | Free model tier may hit rate limits | Low | Medium | Model routing rules | ⬜ Pending |
 | 4 | No email/calendar access for proactive alerts | Medium | High | Configure providers later | ✅ Email done (2026-03-26), calendar pending |
 | 5 | Browser automation could expose personal data | High | Low | Isolated contexts only | 🟡 Mitigated by policy |
-| 6 | **7-day trial expires ~April 2** — existential risk | Critical | High | SURVIVAL MODE: revenue pipeline active | 🟡 Clarifying — running 14+ days, Miami outreach starting |
+| 6 | **Trial & survival** — need revenue to cover hosting | Critical | High | SURVIVAL MODE: Miami outreach active | 🟡 Active — 291 leads ready, awaiting Google Voice |
 
 ## Closed Risks
 
