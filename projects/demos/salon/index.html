@@ -3,78 +3,548 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Miami Salon Website Demo</title>
+    <title>Your Salon | Miami Hair & Beauty</title>
+    <meta name="description" content="Premier salon in Miami. Hair, color, styling, and beauty services. Book online 24/7.">
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💇‍♀️</text></svg>">
+    
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; }
-        header { background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%); color: white; padding: 60px 20px; text-align: center; }
-        header h1 { font-size: 2.5rem; margin-bottom: 10px; }
-        .hero { background: url('https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1200') center/cover; height: 400px; display: flex; align-items: center; justify-content: center; }
-        .hero-text { background: rgba(0,0,0,0.75); color: white; padding: 40px; border-radius: 8px; max-width: 600px; }
-        .hero-text h2 { font-size: 2rem; margin-bottom: 15px; }
-        .cta { display: inline-block; background: #9b59b6; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-size: 1.1rem; margin-top: 15px; }
-        .section { padding: 60px 20px; max-width: 1000px; margin: 0 auto; }
-        .price-table { width: 100%; border-collapse: collapse; margin-top: 30px; }
-        .price-table th, .price-table td { padding: 15px; text-align: left; border-bottom: 1px solid #ddd; }
-        .price-table th { background: #f8f9fa; }
-        .price-table .price { font-weight: bold; color: #27ae60; font-size: 1.1rem; }
-        .features { background: #f8f9fa; padding: 60px 20px; }
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 1000px; margin: 30px auto; }
-        .feature { text-align: center; padding: 30px; background: white; border-radius: 8px; }
-        .testimonials { background: #9b59b6; color: white; padding: 60px 20px; }
-        .testimonial { max-width: 700px; margin: 20px auto; font-style: italic; font-size: 1.1rem; }
-        .testimonial-author { margin-top: 15px; font-style: normal; opacity: 0.9; }
-        .contact { background: #2c3e50; color: white; padding: 60px 20px; text-align: center; }
-        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; max-width: 800px; margin: 30px auto; }
+        /* ===== CSS CUSTOM PROPERTIES ===== */
+        :root {
+            --color-primary: #be1857;      /* Rich rose */
+            --color-primary-dark: #9d174d;
+            --color-secondary: #1f2937;
+            --color-accent: #f472b6;
+            --color-bg: #fafafa;
+            --color-bg-alt: #ffffff;
+            --color-text: #1f2937;
+            --color-text-muted: #6b7280;
+            --color-border: #e5e7eb;
+            
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+            
+            --max-width: 1100px;
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+            
+            --tap-size: 48px;
+        }
+        
+        /* ===== RESET ===== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text);
+            background: var(--color-bg);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        
+        img { max-width: 100%; height: auto; }
+        a { color: inherit; text-decoration: none; }
+        
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.2; }
+        h1 { font-size: clamp(2rem, 5vw, 3rem); }
+        h2 { font-size: clamp(1.75rem, 4vw, 2.25rem); }
+        h3 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
+        
+        /* ===== LAYOUT ===== */
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+        
+        .section { padding: var(--space-2xl) 0; }
+        .section-alt { background: var(--color-bg-alt); }
+        
+        /* ===== HEADER ===== */
+        .header {
+            background: var(--color-bg-alt);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            padding: var(--space-md) 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+        
+        .logo-icon { font-size: 1.75rem; }
+        
+        .nav { display: flex; gap: var(--space-lg); }
+        .nav a {
+            font-size: 0.95rem;
+            color: var(--color-text-muted);
+            transition: color 0.2s;
+        }
+        .nav a:hover { color: var(--color-primary); }
+        
+        /* ===== HERO ===== */
+        .hero {
+            background: linear-gradient(rgba(31,41,55,0.75), rgba(31,41,55,0.75)),
+                        url('https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1200') center/cover;
+            color: white;
+            padding: var(--space-2xl) 0;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-inner { max-width: 650px; }
+        
+        .hero h1 {
+            margin-bottom: var(--space-md);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            background: var(--color-primary);
+            color: white;
+            padding: var(--space-md) var(--space-xl);
+            border-radius: var(--radius-md);
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.2s;
+            min-height: var(--tap-size);
+        }
+        
+        .hero-cta:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        /* ===== SERVICES ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.2s;
+        }
+        
+        .service-card:hover { transform: translateY(-4px); }
+        
+        .service-img {
+            height: 180px;
+            background: url('https://images.unsplash.com/photo-1522337360788-8b13dee7a59e?w=600') center/cover;
+        }
+        
+        .service-content { padding: var(--space-lg); }
+        
+        .service-content h3 { margin-bottom: var(--space-xs); }
+        
+        .service-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin: var(--space-sm) 0;
+        }
+        
+        .service-meta {
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+        }
+        
+        /* ===== PRICING TABLE ===== */
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: var(--space-lg);
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+        
+        .pricing-table th,
+        .pricing-table td {
+            padding: var(--space-md);
+            text-align: left;
+            border-bottom: 1px solid var(--color-border);
+        }
+        
+        .pricing-table th {
+            background: var(--color-secondary);
+            color: white;
+            font-weight: 600;
+        }
+        
+        .pricing-table .price {
+            font-weight: 700;
+            color: var(--color-primary);
+            font-size: 1.1rem;
+        }
+        
+        /* ===== TESTIMONIALS ===== */
+        .testimonial {
+            background: white;
+            padding: var(--space-lg);
+            border-radius: var(--radius-lg);
+            border-left: 4px solid var(--color-primary);
+        }
+        
+        .testimonial-text {
+            font-size: 1.05rem;
+            font-style: italic;
+            margin-bottom: var(--space-md);
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--color-text-muted);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+        
+        /* ===== CTA ===== */
+        .cta-section {
+            background: var(--color-secondary);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-section h2 { margin-bottom: var(--space-md); }
+        
+        .cta-section p {
+            opacity: 0.9;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+            justify-content: center;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: var(--space-md) var(--space-xl);
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.2s;
+            min-height: var(--tap-size);
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+        }
+        
+        .btn-primary {
+            background: var(--color-primary);
+            color: white;
+        }
+        
+        .btn-primary:hover { background: var(--color-primary-dark); }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+        }
+        
+        .btn-secondary:hover { border-color: white; }
+        
+        /* ===== CONTACT ===== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+        
+        .contact-item { text-align: center; }
+        .contact-item h3 {
+            font-size: 1rem;
+            color: var(--color-text-muted);
+            margin-bottom: var(--space-xs);
+            font-family: var(--font-body);
+            font-weight: 600;
+        }
+        
+        .contact-item a {
+            font-size: 1.1rem;
+            color: var(--color-primary);
+            font-weight: 500;
+        }
+        
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--color-secondary);
+            color: white;
+            padding: var(--space-lg) 0;
+            text-align: center;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        /* ===== MOBILE ===== */
+        @media (max-width: 768px) {
+            .nav { display: none; }
+            .hero { min-height: 60vh; }
+            .hero-subtitle { font-size: 1.1rem; }
+            .cta-buttons { flex-direction: column; }
+            .btn { width: 100%; justify-content: center; }
+            .pricing-table { font-size: 0.9rem; }
+            .pricing-table th, .pricing-table td { padding: var(--space-sm); }
+        }
+        
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-in { animation: fadeIn 0.6s ease-out; }
     </style>
 </head>
 <body>
-    <header>
-        <h1>💇‍♀️ Beauty Bar Salon</h1>
-        <p>Downtown Miami | (305) 555-0155</p>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <span class="logo-icon">💇‍♀️</span>
+                <span>Glow Miami</span>
+            </a>
+            <nav class="nav">
+                <a href="#services">Services</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
     </header>
     
-    <div class="hero">
-        <div class="hero-text">
-            <h2>Book Online 24/7</h2>
-            <p>No more phone tag. Let clients book their appointment anytime.</p>
-            <a href="#book" class="cta">Book Now</a>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container hero-inner animate-in">
+            <h1>Your Best Look, Delivered</h1>
+            <p class="hero-subtitle">Miami's premier salon for hair, color, and beauty. Book your appointment online 24/7.</p>
+            <a href="#book" class="hero-cta">
+                Book Appointment
+                <span>→</span>
+            </a>
         </div>
-    </div>
+    </section>
     
+    <!-- SERVICES -->
     <section class="section">
-        <h2 style="text-align:center;">Services & Pricing</h2>
-        <table class="price-table">
-            <tr><th>Service</th><th>Description</th><th>Time</th><th>Price</th></tr>
-            <tr><td>Women's Haircut</td><td>Cut & style</td><td>60 min</td><td class="price">$55</td></tr>
-            <tr><td>Men's Haircut</td><td>Cut & style</td><td>30 min</td><td class="price">$30</td></tr>
-            <tr><td>Color Single Process</td><td>Full color</td><td>120 min</td><td class="price">$85+</td></tr>
-            <tr><td>Highlights</td><td>Partial or full</td><td>150 min</td><td class="price">$120+</td></tr>
-            <tr><td>Blowout</td><td>Wash & style</td><td>45 min</td><td class="price">$40</td></tr>
-            <tr><td>Deep Conditioning</td><td>Treatment</td><td>30 min</td><td class="price">$35</td></tr>
-        </table>
-    </section>
-    
-    <section class="features">
-        <h2 style="text-align:center;">Your Website Includes</h2>
-        <div class="features-grid">
-            <div class="feature"><h3>📅 Online Booking</h3><p>Clients book 24/7 - no phone needed</p></div>
-            <div class="feature"><h3>💰 Gift Cards</h3><p>Sell gift cards online</p></div>
-            <div class="feature"><h3>⭐ Reviews</h3><p>Showcase your 4+ star rating</p></div>
-            <div class="feature"><h3>📱 Mobile Ready</h3><p>Perfect on every device</p></div>
+        <div class="container">
+            <h2 style="text-align:center;">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img"></div>
+                    <div class="service-content">
+                        <h3>Haircut & Style</h3>
+                        <p class="service-price">From $55</p>
+                        <p class="service-meta">60 min • Includes consultation</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img"></div>
+                    <div class="service-content">
+                        <h3>Color & Highlights</h3>
+                        <p class="service-price">From $120</p>
+                        <p class="service-meta">90-120 min • Premium products</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img"></div>
+                    <div class="service-content">
+                        <h3>Balayage & Ombré</h3>
+                        <p class="service-price">From $200</p>
+                        <p class="service-meta">2-3 hours • Hand-painted</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img"></div>
+                    <div class="service-content">
+                        <h3>Blowout & Styling</h3>
+                        <p class="service-price">$45</p>
+                        <p class="service-meta">45 min • Special events</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     
-    <section class="testimonials">
-        <h2 style="text-align:center;">What Clients Say</h2>
-        <div class="testimonial">"Love that I can book anytime! No more playing phone tag."</div>
-        <div class="testimonial-author">- Sarah M., Miami Beach</div>
+    <!-- PRICING -->
+    <section id="pricing" class="section section-alt">
+        <div class="container">
+            <h2 style="text-align:center;">Pricing</h2>
+            <table class="pricing-table">
+                <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>Description</th>
+                        <th>Time</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Women's Haircut</td>
+                        <td>Cut & style</td>
+                        <td>60 min</td>
+                        <td class="price">$55</td>
+                    </tr>
+                    <tr>
+                        <td>Men's Haircut</td>
+                        <td>Cut & style</td>
+                        <td>30 min</td>
+                        <td class="price">$30</td>
+                    </tr>
+                    <tr>
+                        <td>Full Color</td>
+                        <td>Root touch-up</td>
+                        <td>90 min</td>
+                        <td class="price">$85</td>
+                    </tr>
+                    <tr>
+                        <td>Highlights</td>
+                        <td>Partial or full</td>
+                        <td>120 min</td>
+                        <td class="price">$120+</td>
+                    </tr>
+                    <tr>
+                        <td>Balayage</td>
+                        <td>Hand-painted</td>
+                        <td>3 hrs</td>
+                        <td class="price">$200+</td>
+                    </tr>
+                    <tr>
+                        <td>Deep Conditioning</td>
+                        <td>Keratin treatment</td>
+                        <td>45 min</td>
+                        <td class="price">$50</td>
+                    </tr>
+                    <tr>
+                        <td>Bridal Styling</td>
+                        <td>Trial + event day</td>
+                        <td>2 hrs</td>
+                        <td class="price">$150</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </section>
     
-    <section id="book" class="contact">
-        <h2>Book Your Appointment</h2>
-        <p style="margin:20px 0;">(305) 555-0155 | 123 Main St, Miami</p>
-        <a href="tel:3055550155" class="cta">Call Now</a>
+    <!-- REVIEWS -->
+    <section class="section">
+        <div class="container">
+            <h2 style="text-align:center;">What Clients Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <p class="testimonial-text">"I've never loved my color more! The stylists here really listen and deliver exactly what you want. My go-to salon in Miami."</p>
+                    <p class="testimonial-author">— Amanda R., Wynwood</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"Found this gem and it's now my secret spot. The balayage is flawless and it lasts for months. Worth every penny!"</p>
+                    <p class="testimonial-author">— Maria S., Brickell</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"Perfect for my wedding day! They did my hair and makeup and everything lasted all night. Highly recommend!"</p>
+                    <p class="testimonial-author">— Jessica T., Coral Gables</p>
+                </div>
+            </div>
+        </div>
     </section>
+    
+    <!-- CTA -->
+    <section class="section cta-section">
+        <div class="container">
+            <h2>Ready to Look Your Best?</h2>
+            <p>Book online 24/7 or call us. Walk-ins welcome!</p>
+            <div class="cta-buttons">
+                <a href="tel:+13055550155" class="btn btn-primary">
+                    📞 (305) 555-0155
+                </a>
+                <a href="mailto:book@glowmiami.com" class="btn btn-secondary">
+                    Email Us
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 style="text-align:center;">Find Us</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h3>📍 Location</h3>
+                    <p>1200 Lincoln Rd<br>Miami Beach, FL 33139</p>
+                </div>
+                <div class="contact-item">
+                    <h3>🕐 Hours</h3>
+                    <p>Mon-Sat: 9am–7pm<br>Sun: 10am–5pm</p>
+                </div>
+                <div class="contact-item">
+                    <h3>📞</h3>
+                    <a href="tel:+13055550155">(305) 555-0155</a>
+                </div>
+                <div class="contact-item">
+                    <h3>✉️ Email</h3>
+                    <a href="mailto:info@glowmiami.com">info@glowmiami.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 Glow Miami Salon. Miami's Premier Hair Destination.</p>
+        </div>
+    </footer>
 </body>
 </html>

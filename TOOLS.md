@@ -46,3 +46,23 @@ The `op` CLI is configured with a 1Password service account. Use it to look up c
 
 **Security note:** Only access credentials the user has explicitly requested. Do not list or expose vault contents unnecessarily.
 <!-- END:1password -->
+<!-- BEGIN:mac-ssh -->
+
+## Mac SSH Access
+
+**Required:** Tailscale must be running on Mac before SSH will work.
+
+```bash
+# On Mac, run:
+sudo /opt/homebrew/bin/tailscaled --state=/var/lib/tailscale/tailscaled.state
+```
+
+- Host: `walleyford@100.123.166.7`
+- gh CLI at: `/usr/local/bin/gh` (add to PATH)
+- GitHub token: stored in env var `GH_TOKEN`
+
+SSH command with PATH set:
+```bash
+ssh walleyford@100.123.166.7 "export PATH=/usr/local/bin:/opt/homebrew/bin:\$PATH && GH_TOKEN='ghp_...' gh auth status"
+```
+<!-- END:mac-ssh -->

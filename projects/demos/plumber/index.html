@@ -3,101 +3,538 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Miami Plumber Website Demo</title>
+    <title>Your Plumber |Miami Emergency Plumbing</title>
+    <meta name="description" content="Miami's trusted plumber. Emergency service, leak repair, drain cleaning. Available 24/7.">
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔧</text></svg>">
+    
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; }
-        header { background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); color: white; padding: 40px 20px; text-align: center; }
-        header h1 { font-size: 2.5rem; margin-bottom: 10px; }
-        .emergency { background: #c0392b; color: white; text-align: center; padding: 20px; font-size: 1.3rem; }
-        .hero { background: url('https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=1200') center/cover; height: 350px; display: flex; align-items: center; justify-content: center; }
-        .hero-text { background: rgba(0,0,0,0.85); color: white; padding: 35px; border-radius: 8px; max-width: 550px; text-align: center; }
-        .hero-text h2 { font-size: 1.8rem; margin-bottom: 10px; }
-        .cta-button { display: inline-block; background: #e74c3c; color: white; padding: 15px 35px; text-decoration: none; border-radius: 5px; font-size: 1.1rem; font-weight: bold; margin-top: 15px; }
-        .cta-filled { background: #27ae60; }
-        .section { padding: 50px 20px; max-width: 900px; margin: 0 auto; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 30px; }
-        .service-card { border: 2px solid #e74c3c; border-radius: 8px; padding: 25px; text-align: center; }
-        .service-card h3 { color: #e74c3c; margin-bottom: 10px; font-size: 1.2rem; }
-        .service-icon { font-size: 2.5rem; margin-bottom: 10px; }
-        .info-bar { background: #2c3e50; color: white; padding: 20px; display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; text-align: center; }
-        .info-bar-item { padding: 10px 20px; }
-        .info-bar-item span { font-size: 1.3rem; margin-right: 8px; }
-        .features { background: #f8f9fa; padding: 50px 20px; }
-        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; max-width: 900px; margin: 25px auto; }
-        .feature { text-align: center; padding: 20px; }
-        .feature-icon { font-size: 2.5rem; }
-        .why-us { background: #e74c3c; color: white; padding: 50px 20px; }
-        .why-list { max-width: 600px; margin: 0 auto; }
-        .why-list li { margin: 15px 0; font-size: 1.1rem; list-style: none; padding-left: 30px; position: relative; }
-        .why-list li:before { content: "✓"; position: absolute; left: 0; font-weight: bold; }
-        .contact { padding: 50px 20px; text-align: center; }
-        .contact-cta { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 600px; margin: 30px auto; }
+        :root {
+            --color-primary: #0d9488;       /* Teal - trust */
+            --color-primary-dark: #0f766e;
+            --color-secondary: #1e293b;
+            --color-accent: #f59e0b;
+            --color-bg: #f8fafc;
+            --color-bg-alt: #ffffff;
+            --color-text: #1e293b;
+            --color-text-muted: #64748b;
+            --color-border: #e2e8f0;
+            --color-emergency: #dc2626;
+            
+            --font-display: 'Merriweather', Georgia, serif;
+            --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+            
+            --max-width: 1100px;
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+            
+            --tap-size: 48px;
+        }
+        
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: var(--font-body);
+            color: var(--color-text);
+            background: var(--color-bg);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        
+        img { max-width: 100%; height: auto; }
+        a { color: inherit; text-decoration: none; }
+        
+        h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.2; }
+        h1 { font-size: clamp(2rem, 5vw, 3rem); }
+        h2 { font-size: clamp(1.75rem, 4vw, 2.25rem); }
+        h3 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
+        
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+        
+        .section { padding: var(--space-2xl) 0; }
+        .section-alt { background: var(--color-bg-alt); }
+        
+        /* HEADER */
+        .header {
+            background: var(--color-bg-alt);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            padding: var(--space-md) 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+        
+        .logo-icon { font-size: 1.75rem; }
+        
+        .nav { display: flex; gap: var(--space-lg); }
+        .nav a {
+            font-size: 0.95rem;
+            color: var(--color-text-muted);
+            transition: color 0.2s;
+        }
+        .nav a:hover { color: var(--color-primary); }
+        
+        .nav-cta {
+            background: var(--color-primary);
+            color: white;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-md);
+            font-weight: 600;
+        }
+        
+        /* EMERGENCY BAR */
+        .emergency-bar {
+            background: var(--color-emergency);
+            color: white;
+            text-align: center;
+            padding: var(--space-sm) var(--space-md);
+            font-weight: 600;
+        }
+        
+        .emergency-bar a {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        /* HERO */
+        .hero {
+            background: linear-gradient(rgba(30,41,55,0.88), rgba(30,41,55,0.88)),
+                        url('https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=1200') center/cover;
+            color: white;
+            padding: var(--space-2xl) 0;
+            min-height: 65vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-inner { max-width: 650px; }
+        
+        .hero h1 { margin-bottom: var(--space-md); }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            background: var(--color-primary);
+            color: white;
+            padding: var(--space-md) var(--space-xl);
+            border-radius: var(--radius-md);
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.2s;
+            min-height: var(--tap-size);
+        }
+        
+        .hero-cta:hover {
+            background: var(--color-primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .hero-cta-emergency {
+            background: var(--color-emergency);
+        }
+        
+        .hero-cta-emergency:hover {
+            background: #b91c1c;
+        }
+        
+        /* SERVICES */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.2s;
+        }
+        
+        .service-card:hover { transform: translateY(-4px); }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .service-card h3 { margin-bottom: var(--space-xs); }
+        
+        .service-card p {
+            color: var(--color-text-muted);
+            font-size: 0.95rem;
+        }
+        
+        /* WHY US */
+        .whyus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+        
+        .whyus-card {
+            text-align: center;
+        }
+        
+        .whyus-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--space-sm);
+            display: block;
+        }
+        
+        .whyus-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: var(--space-xs);
+        }
+        
+        .whyus-card p {
+            font-size: 0.95rem;
+            color: var(--color-text-muted);
+        }
+        
+        /* TESTIMONIALS */
+        .testimonial {
+            background: white;
+            padding: var(--space-lg);
+            border-radius: var(--radius-lg);
+            border-left: 4px solid var(--color-primary);
+        }
+        
+        .testimonial-text {
+            font-size: 1.05rem;
+            font-style: italic;
+            margin-bottom: var(--space-md);
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--color-text-muted);
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-xl);
+        }
+        
+        /* CTA */
+        .cta-section {
+            background: var(--color-secondary);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-section h2 { margin-bottom: var(--space-md); }
+        .cta-section p { opacity: 0.9; margin-bottom: var(--space-xl); }
+        
+        .cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+            justify-content: center;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: var(--space-md) var(--space-xl);
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.2s;
+            min-height: var(--tap-size);
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+        }
+        
+        .btn-primary {
+            background: var(--color-primary);
+            color: white;
+        }
+        
+        .btn-primary:hover { background: var(--color-primary-dark); }
+        
+        .btn-emergency {
+            background: var(--color-emergency);
+            color: white;
+        }
+        
+        .btn-emergency:hover { background: #b91c1c; }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+        }
+        
+        .btn-secondary:hover { border-color: white; }
+        
+        /* CONTACT */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+        
+        .contact-item { text-align: center; }
+        .contact-item h3 {
+            font-size: 1rem;
+            color: var(--color-text-muted);
+            margin-bottom: var(--space-xs);
+            font-family: var(--font-body);
+            font-weight: 600;
+        }
+        
+        .contact-item a {
+            font-size: 1.1rem;
+            color: var(--color-primary);
+            font-weight: 500;
+        }
+        
+        /* FOOTER */
+        .footer {
+            background: var(--color-secondary);
+            color: white;
+            padding: var(--space-lg) 0;
+            text-align: center;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        
+        /* MOBILE */
+        @media (max-width: 768px) {
+            .nav { display: none; }
+            .hero { min-height: 55vh; }
+            .hero-subtitle { font-size: 1.1rem; }
+            .cta-buttons { flex-direction: column; }
+            .btn { width: 100%; justify-content: center; }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-in { animation: fadeIn 0.6s ease-out; }
     </style>
 </head>
 <body>
-    <header>
-        <h1>🔧 Royal Plumbing</h1>
-        <p>Licensed & Insured | Miami's Trusted Plumbers</p>
+    <!-- EMERGENCY BAR -->
+    <div class="emergency-bar">
+        🚨 24/7 Emergency Service — <a href="tel:+13056941964">Call Now: (305) 694-1964</a>
+    </div>
+    
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <span class="logo-icon">🔧</span>
+                <span>Royal Plumbing</span>
+            </a>
+            <nav class="nav">
+                <a href="#services">Services</a>
+                <a href="#why-us">Why Us</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#contact" class="nav-cta">Get Quote</a>
+            </nav>
+        </div>
     </header>
     
-    <div class="emergency">
-        🚨 24/7 Emergency Service: (305) 555-0147 🚨
-    </div>
-    
-    <div class="hero">
-        <div class="hero-text">
-            <h2>Fast. Fair. Fixed.</h2>
-            <p>When there's a leak at 2am, you need a plumber who shows up.</p>
-            <a href="tel:3055550147" class="cta-button cta-filled">Call Now: (305) 555-0147</a>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container hero-inner animate-in">
+            <h1>Your Trusted Miami Plumber</h1>
+            <p class="hero-subtitle">Fast, reliable plumbing services in Miami. From leaks to emergencies, we fix it right the first time.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-md);">
+                <a href="tel:+13056941964" class="hero-cta hero-cta-emergency">
+                    📞 (305) 694-1964
+                </a>
+                <a href="#contact" class="hero-cta">
+                    Get Free Quote
+                </a>
+            </div>
         </div>
-    </div>
+    </section>
     
-    <div class="info-bar">
-        <div class="info-bar-item">✅ Licensed & Insured</div>
-        <div class="info-bar-item">⚡ Fast Response</div>
-        <div class="info-bar-item">💰 Upfront Pricing</div>
-        <div class="info-bar-item">⭐ 4.5 Rating</div>
-    </div>
-    
+    <!-- SERVICES -->
     <section class="section">
-        <h2 style="text-align:center;">Our Services</h2>
-        <div class="services-grid">
-            <div class="service-card"><div class="service-icon">🚿</div><h3>Drains & Clogs</h3><p>Cleared same-day</p></div>
-            <div class="service-card"><div class="service-icon">🔳</div><h3>Leak Repair</h3><p>Pipes, faucets, water heaters</p></div>
-            <div class="service-card"><div class="service-icon">🚽</div><h3>Toilets</h3><p>Repair & install</p></div>
-            <div class="service-card"><div class="service-icon">🔧</div><h3>Emergency</h3><p>24/7 service</p></div>
+        <div class="container">
+            <h2 style="text-align:center;">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🚿</div>
+                    <h3>Leak Repair</h3>
+                    <p>Fast leak detection and repair. We find the source and fix it permanently.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚽</div>
+                    <h3>Drain Cleaning</h3>
+                    <p>Clogged drains? We clear them fast with professional equipment.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔩</div>
+                    <h3>Pipe Installation</h3>
+                    <p>New construction or repiping. Quality materials that last.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚿</div>
+                    <h3>Water Heater</h3>
+                    <p>Installation, repair, and maintenance. All major brands.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏠</div>
+                    <h3>Emergency Service</h3>
+                    <p>24/7 availability for urgent plumbing issues.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">✅</div>
+                    <h3>Inspections</h3>
+                    <p>Annual plumbing inspections for peace of mind.</p>
+                </div>
+            </div>
         </div>
     </section>
     
-    <section class="features">
-        <h2 style="text-align:center;">What Your Website Includes</h2>
-        <div class="features-grid">
-            <div class="feature"><div class="feature-icon">📱</div><h3>Click-to-Call</h3><p>One-tap from phone</p></div>
-            <div class="feature"><div class="feature-icon">⏰</div><h3>Hours Display</h3><p>24/7 emergency shown</p></div>
-            <div class="feature"><div class="feature-icon">📍</div><h3>Service Area</h3><p>Map included</p></div>
-            <div class="feature"><div class="feature-icon">⭐</div><h3>Reviews</h3><p>Builds trust</p></div>
+    <!-- WHY US -->
+    <section id="why-us" class="section section-alt">
+        <div class="container">
+            <h2 style="text-align:center;">Why Miami Chooses Us</h2>
+            <div class="whyus-grid">
+                <div class="whyus-card">
+                    <span class="whyus-icon">⚡</span>
+                    <h3>Fast Response</h3>
+                    <p>Same-day service. Emergencies prioritized.</p>
+                </div>
+                <div class="whyus-card">
+                    <span class="whyus-icon">💯</span>
+                    <h3>Licensed & Insured</h3>
+                    <p>Fully certified professionals.</p>
+                </div>
+                <div class="whyus-card">
+                    <span class="whyus-icon">💰</span>
+                    <h3>Upfront Pricing</h3>
+                    <p>No hidden fees. Free estimates.</p>
+                </div>
+                <div class="whyus-card">
+                    <span class="whyus-icon">⭐</span>
+                    <h3>5-Star Reviews</h3>
+                    <p>Hundreds of happy customers.</p>
+                </div>
+            </div>
         </div>
     </section>
     
-    <section class="why-us">
-        <h2 style="text-align:center;">Why Customers Choose Us</h2>
-        <ul class="why-list">
-            <li>Same-day service available</li>
-            <li>Upfront pricing - no surprises</li>
-            <li>Clean, professional technicians</li>
-            <li>50+ 5-star reviews</li>
-            <li>Licensed & insured</li>
-        </ul>
-    </section>
-    
-    <section class="contact">
-        <h2>Need a Plumber?</h2>
-        <p>1841 NE 165th St, North Miami Beach, FL 33162</p>
-        <div class="contact-cta">
-            <a href="tel:3055550147" class="cta-button cta-filled">📞 Call Now</a>
-            <a href="mailto:info@royalplumbing.com" class="cta-button">📧 Email Us</a>
+    <!-- REVIEWS -->
+    <section id="reviews" class="section">
+        <div class="container">
+            <h2 style="text-align:center;">What Clients Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <p class="testimonial-text">"Called for a leaky faucet, they came same day and fixed it in 20 minutes. Professional and affordable!"</p>
+                    <p class="testimonial-author">— Robert M., Miami</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"Emergency call on a Sunday night. They showed up within an hour and fixed our burst pipe. Lifesavers!"</p>
+                    <p class="testimonial-author">— Sandra L., Coral Gables</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"Best plumber in Miami! Honest pricing, quality work. We've used them for years."</p>
+                    <p class="testimonial-author">— Carlos R., Brickell</p>
+                </div>
+            </div>
         </div>
     </section>
+    
+    <!-- CTA -->
+    <section class="section cta-section">
+        <div class="container">
+            <h2>Need a Plumber?</h2>
+            <p>Free estimates. Available 24/7 for emergencies.</p>
+            <div class="cta-buttons">
+                <a href="tel:+13056941964" class="btn btn-emergency">
+                    📞 (305) 694-1964
+                </a>
+                <a href="mailto:service@royalplumbingmiami.com" class="btn btn-secondary">
+                    Email Us
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 style="text-align:center;">Contact Us</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h3>📍 Service Area</h3>
+                    <p>All of Miami-Dade County</p>
+                </div>
+                <div class="contact-item">
+                    <h3>🕐 Hours</h3>
+                    <p>Mon-Fri: 8am–6pm<br>24/7 Emergency</p>
+                </div>
+                <div class="contact-item">
+                    <h3>📞</h3>
+                    <a href="tel:+13056941964">(305) 694-1964</a>
+                </div>
+                <div class="contact-item">
+                    <h3>✉️ Email</h3>
+                    <a href="mailto:service@royalplumbingmiami.com">service@royalplumbingmiami.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 Royal Plumbing. Miami's Trusted Plumbers Since 2010.</p>
+        </div>
+    </footer>
 </body>
 </html>
