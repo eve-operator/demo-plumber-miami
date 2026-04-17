@@ -2,8 +2,10 @@
 
 ## Royal Plumbing
 - Contact: Yairis González
-- Phone: (305) 694-1964
-- Source: Nextdoor
+- Phone: (305) 694-1964, Fax: (305) 694-1965
+- Address: 3525 NW 79th St, Miami, FL 33147
+- Websites: royalplumbing.com, royalplumbing.net
+- Source: Nextdoor + YellowPages
 
 ## Puerto Sagua
 - Contact: Family-owned (owner in kitchen)
@@ -23,11 +25,15 @@
 - Note: 5.0 rating, 52 reviews - HIGH VALUE
 - Demo: Should get demo site when Pages enable
 
+## Beauty Bar Salon & Spa
+- Contact: Need to search
+- Phone: (786) 619-4896
+- Address: 7966 SW 8th St, Miami, FL 33144
+
 ---
 
 ## TO DO - Search these next:
 1. Puerto Sagua owner/manager name
-2. Maid to Order owner name
-3. Miami Premium Tires owner
-4. Miami Moving & Storage owner
-5. Beauty Bar Salon owner
+2. Miami Premium Tires owner
+3. Miami Moving & Storage owner
+4. Beauty Bar Salon owner
