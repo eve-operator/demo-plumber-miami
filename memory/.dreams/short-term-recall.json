@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "updatedAt": "2026-04-17T08:28:04.279Z",
+  "entries": {
+    "memory:memory/2026-04-16.md:1:34": {
+      "key": "memory:memory/2026-04-16.md:1:34",
+      "path": "memory/2026-04-16.md",
+      "startLine": 1,
+      "endLine": 34,
+      "source": "memory",
+      "snippet": "# 2026-04-16 ## Session Context - Targeting 100 Miami business leads (no websites) for web design cold outreach - Currently at 44 leads, ~56 more needed ## Lead Collection Progress - Extracted from various Yelp category screenshots - Categories covered: plumbers, dentists, auto repair, electricians, restaurants, salons, movers, cleaning, painting, landscaping, personal trainers, photographers, pet grooming, pest control, jewelry repair, laundromat, taxi, storage, physical therapy, urgent care, computer repair, optometry, veterinarians, yoga, day spas, florists, gyms, pool cleaning, window cleaning, audio/visual, tailoring - Top leads enriched with Google Business URLs (Puerto Sagua 4.4/438",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "totalScore": 0.7245966333908131,
+      "maxScore": 0.7245966333908131,
+      "firstRecalledAt": "2026-04-17T08:28:04.279Z",
+      "lastRecalledAt": "2026-04-17T08:28:04.279Z",
+      "queryHashes": [
+        "42bbd655c4ba"
+      ],
+      "recallDays": [
+        "2026-04-17"
+      ],
+      "conceptTags": [
+        "audio/visual",
+        "4.4/438",
+        "context",
+        "targeting",
+        "miami",
+        "business",
+        "leads",
+        "websites"
+      ]
+    },
+    "memory:memory/2026-04-16.md:25:46": {
+      "key": "memory:memory/2026-04-16.md:25:46",
+      "path": "memory/2026-04-16.md",
+      "startLine": 25,
+      "endLine": 46,
+      "source": "memory",
+      "snippet": "- User instruction: \"make progress without me\" - don't ask for direction, make good assumptions by default - SMS campaign research completed - first message response rate ~9.3% ## Lead Collection Progress - Extracted from various Yelp category screenshots - 60+ categories covered - CSV saved to: /root/.openclaw/workspace/leads_miami.csv - Campaign doc updated: Documents/07_Outreach/CAMPAIGN_MIAMI.md ## Infrastructure - Mac accessible via Tailscale SSH: walleyford@100.123.166.7 - Browser on Mac is user's real Chrome (not Puppeteer) - Gmail signed in on Mac ## Next Steps (autonomous) 1. Wait for Jason to set up Google Voice 2. Begin cold outreach with tested message templates 3. Track respo",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "totalScore": 0.6975327233280965,
+      "maxScore": 0.6975327233280965,
+      "firstRecalledAt": "2026-04-17T08:28:04.279Z",
+      "lastRecalledAt": "2026-04-17T08:28:04.279Z",
+      "queryHashes": [
+        "42bbd655c4ba"
+      ],
+      "recallDays": [
+        "2026-04-17"
+      ],
+      "conceptTags": [
+        "9.3",
+        "100.123.166.7",
+        "user",
+        "instruction",
+        "progress",
+        "without",
+        "don't",
+        "ask"
+      ]
+    }
+  }
+}
